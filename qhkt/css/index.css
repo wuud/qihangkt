@@ -1,0 +1,63 @@
+
+/* 轮播图 */
+.carousel-inner{
+	margin-top: -20px; 
+}
+.carousel-inner > div.item{
+	height: 410px;
+	background-position: center center !important;
+	background-size: cover !important; 
+}
+@media(min-width: 769px){
+	.carousel-inner > div{
+		height: 410px !important;
+	}
+}
+@media(max-width: 768px){
+	.carousel-inner > div{
+		height: auto !important;
+	}
+}
+/* 缩略图 */
+.page-header{
+	border-bottom: 4px #ddd solid;
+}
+#courseList > .page-header > h3{
+	position: relative;
+}
+#courseList > .page-header > h3 > a{
+	color:#666;
+	font-weight: normal;
+	font-size: 16px;
+	right: 0px;
+	text-decoration: none;
+	position: absolute;
+	line-height: 26.4px;
+}
+#courseList > .page-header > h3 > a:hover{
+	color:#6972F8;
+}
+.thumbnail {
+	border: 1px #fff solid;
+	padding: 10px;
+	border-radius: 0;
+}
+.thumbnail:hover{
+	border:1px #ccc solid ;
+	box-shadow: 2px;
+}
+.thumbnail > .caption > h3{
+	margin-top: 5px;
+	font-size: 18px;
+}
+.thumbnail > .caption > h3.course_price{
+	position: relative;
+	margin-top: 20px;
+	color: #DB3535
+}
+.thumbnail > .caption > h3 > .course_group{
+	position: absolute;
+	right: 0;
+	color: #666;
+	font-size: 14px;
+}

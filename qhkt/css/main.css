@@ -1,0 +1,44 @@
+/* 导航栏 */
+.navbar-brand{
+	padding-left: 50px;
+	color: #333 !importment;
+	font-size: 22px;
+	font-weight: bolder; 
+	position: relative;
+}
+.navbar-brand > span{
+	color: #6972F8;
+	position:absolute;
+	left: 0;
+}
+.input-group{
+	padding-left: 50px;
+}
+#qh_navbar{
+	font-weight: bolder;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #333;
+}
+.navbar-default .navbar-nav>li>a:hover{
+	color: #6972F8;
+}
+/*页面底部信息*/
+.footer{
+	margin-top: 50px;
+	background: #ddd;
+	padding: 30px;
+}
+.footer > div.footericon{
+	text-align: center;
+}
+.footer > div.footerion > span{
+	font-size: 60px;
+}
+.footer > .cr{
+	text-align: center;
+}
+.footer > .cr > a{
+	text-decoration: none;
+	color: #333;
+}

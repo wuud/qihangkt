@@ -1,0 +1,32 @@
+.input-group-btn>.btn{
+	float: left;
+}
+.container>.row{
+	margin-top: 20px;
+}
+.container>.row button{
+	width: 100px;
+}
+.container>.row button:hover,
+#pager>div>button:hover{
+	background: #055891;
+	color: #fff;
+}
+#content_table>div>table tr:first-child{
+	background: #055891;
+	color: #fff;
+}
+#pager{
+	padding-right: 10px;
+	margin-bottom: 20px;
+}
+#pager > p{
+	height: 30px;
+	line-height:30px;
+	font-size: 15px;
+}
+#pager > p >span{
+	font-weight: bolder;
+	font-size: 16px;
+	color: #055891;
+}

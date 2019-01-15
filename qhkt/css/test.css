@@ -1,0 +1,25 @@
+.navbar-brand{
+	padding-left: 50px;
+	color: #333 !importment;
+	font-size: 22px;
+	font-weight: bolder; 
+	position: relative;
+}
+.navbar-brand > span{
+	color: #6972F8;
+	position:absolute;
+	left: 0;
+}
+.input-group{
+	padding-left: 50px;
+}
+#qh_navbar{
+	font-weight: bolder;
+}
+.carousel-inner{
+	margin-top: -20px; 
+}
+.carousel-inner > div.item{
+	height: 410px;
+	background-position: center center !important;
+}
