@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mansys.dao.ResourceDao">
+
+	<select id="countResourceByPath" resultType="int">
+		select count(path)
+		from resource
+		where path=#{path}
+	</select>
+	<update id="updateResource">
+		update resource set grade=#{grade}
+		where path=#{path}
+	</update>
+	<insert id="insertResource">
+		insert into resource(path,grade) values(#{path},#{grade})
+	</insert>
+
+
+</mapper>

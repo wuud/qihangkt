@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mansys.dao.CourseDao">
+
+	<sql id="course_fileds">c.id,c.cname,c.price,c.introduction,c.picture,c.video,c.user_id,u.username user_name</sql>
+
+	<select id="getCourseById" resultMap="course">
+		select
+		<include refid="course_fileds" />
+		from course c,user u
+		where c.user_id=u.id and c.id=#{id}
+	</select>
+	<select id="getCourseByName" resultMap="course">
+		select
+		<include refid="course_fileds" />
+		from course c,user u
+		where c.user_id=u.id and c.cname=#{cname}
+	</select>
+	<select id="getCourseByUser" resultMap="course">
+		select
+		<include refid="course_fileds" />
+		from course c,user u
+		where c.user_id=u.id and c.user_id=#{userId}
+	</select>
+	<select id="getAllCourse" resultMap="course">
+		select
+		<include refid="course_fileds" />
+		from course c,user u
+		where c.user_id=u.id
+	</select>
+
+	<resultMap type="cn.mansys.model.Course" id="course">
+		<id column="id" property="id" />
+		<result column="cname" property="cname" />
+		<result column="introduction" property="introduction" />
+		<result column="price" property="price" />
+		<result column="user_id" property="user.id" />
+		<result column="user_name" property="user.username" />
+	</resultMap>
+	<insert id="insertCourse">
+		insert into course(cname,introduction,price,picture,c.video,user_id)
+		values(#{cname},#{introduction},#{price},#{picture},#{video},#{user.id})
+	</insert>
+
+</mapper>

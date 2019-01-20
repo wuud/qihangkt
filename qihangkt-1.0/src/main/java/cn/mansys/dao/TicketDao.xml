@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mansys.dao.TicketDao">
+	
+	<select id="getTicketById" resultType="cn.mansys.model.Ticket">
+		select * from ticket where id=#{id}
+	</select>
+	<select id="getTicketByTicket" resultType="cn.mansys.model.Ticket">
+		select * from ticket where ticket=#{ticket}
+	</select>
+	
+	<insert id="insertTicket">
+	 	insert into ticket(status,user_id,ticket,expired) 
+	 	values(#{status},#{userId},#{ticket},#{expired})
+	</insert>
+	<update id="updateTicket">
+		update  ticket set  status=#{status},user_id=#{userId},expired=#{expired}
+		where id=#{id}
+	</update>
+
+
+
+</mapper>

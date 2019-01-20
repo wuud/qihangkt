@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mansys.dao.UserDao">
+	<sql id="user_fields">
+		u.id,u.username,u.password,u.email,u.phone,u.status,u.add_date,u.role_id
+	</sql>
+
+	<select id="getUserById" resultMap="user">
+		select <include refid="user_fields"></include>,r.rname
+		from user u,role r
+		where u.id=#{id} and u.role_id=r.id
+	</select>
+	
+	<select id="getUserByPhone" resultType="cn.mansys.model.User">
+		select * from user where phone=#{phone}
+	</select>
+	
+	<select id="getUserByEmail" resultType="cn.mansys.model.User">
+		select * from user where email=#{email}
+	</select>
+	
+	<select id="getAllUser" resultMap="user">
+		select <include refid="user_fields"/>, r.rname 
+		from user u,role r
+		where u.role_id=r.id
+	</select>
+	<select id="getUsersByPage" resultMap="user">
+		select <include refid="user_fields"/>, r.rname 
+		from user u,role r
+		where u.role_id=r.id
+		limit #{pageSize} offset #{offsetNum}
+	</select>
+	<select id="getUsersByRole" resultMap="user">
+		select <include refid="user_fields"/>, r.rname 
+		from user u,role r
+		where u.role_id=#{roleId} and u.role_id=r.id 
+		limit #{pageSize} offset #{offsetNum}
+	</select>
+	<select id="countAllUser" resultType="java.lang.Integer">
+		select count(id)
+		from user
+	</select>
+	<select id="searchUser" resultMap="user">
+		select <include refid="user_fields"/>,r.rname
+		from user u,role r
+		where u.username like #{userInfo} and u.role_id=r.id
+		limit #{pageSize} offset #{offsetNum}
+	</select>
+	<resultMap type="cn.mansys.model.User" id="user">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+		<result column="status" property="status"/>
+		<result column="add_date" property="addDate"/>
+		<result column="role_id" property="roleId.id"/>
+		<result column="rname" property="roleId.rname"/>
+		
+	</resultMap>
+	<update id="updateUser">
+		update user set
+		username=#{username},email=#{email},phone=#{phone},role_id=#{roleId.id}
+		<if test="password != &quot;&quot;">
+			,password=#{password}
+		</if>
+		where id=#{id}
+	</update>
+	<delete id="delUser">
+		delete from user
+		where id=#{id}
+	</delete>
+	<insert id="insetUser">
+		insert into
+		user(username,password,email,phone,status,add_date,role_id)
+		values(#{username},#{password},#{email},#{phone},#{status},#{addDate},#{roleId.id})
+
+	</insert>
+
+</mapper>
