@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mansys.dao.VideoDao">
+
+	<sql id="videoFileds">v.id,v.vname,v.video_path,v.course_id,v.video_size,c.cname,c.user_id,c.picture</sql>
+	<select id="getVideoById" resultMap="Video">
+		select <include refid="videoFileds"/>
+		from video v,course c
+		where v.course_id=c.id and v.id=#{videoId}
+	</select>
+	<select id="getVideoByCourse" resultMap="Video">
+		select <include refid="videoFileds"/>
+		from video v,course c
+		where v.course_id=c.id and v.course_id=#{courseId}
+	</select>
+	
+	<resultMap type="cn.mansys.model.Video" id="Video">
+	<id column="id" property="id"/>
+	<result column="vname" property="vname"/>
+	<result column="video_path" property="videoPath"/>
+	<result column="video_size" property="videoSize"/>
+	<result column="course_id" property="course.id"/>
+	<result column="cname" property="course.cname"/>
+	<result column="user_id" property="course.user.id"/>
+	<result column="picture" property="course.picture"/>
+	</resultMap>
+	
+	<insert id="addVideo">
+	 	insert into video(vname,video_path,course_id,video_size) 
+	 				values(#{vname},#{videoPath},#{course.id},#{videoSize})
+	</insert>
+
+</mapper>
