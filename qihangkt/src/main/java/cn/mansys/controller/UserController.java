@@ -40,6 +40,9 @@ public class UserController {
 
 	@RequestMapping(value = "/localUser")
 	public String getUserDetail(Model model) {
+		if(hostHolder.getUser()==null) {
+			return "redirect:/login";
+		}
 		int userId = hostHolder.getUser().getId();
 		// 我参加的课程
 		List<Integer> userCourses = joinCourseService.getUserCourses(userId);

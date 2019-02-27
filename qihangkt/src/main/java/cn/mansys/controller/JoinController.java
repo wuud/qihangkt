@@ -19,12 +19,18 @@ public class JoinController {
 	
 	@RequestMapping(value="/joinCourse",method=RequestMethod.POST)
 	public String joinCourse(@RequestParam("courseId")int courseId) {
+		if(hostHolder.getUser()==null) {
+			return "redirect:/login";
+		}
 		int userId=hostHolder.getUser().getId();
 		joinCourseService.joinCourse(courseId, userId);
 		return "redirect:/course/"+courseId;
 	}
 	@RequestMapping(value="/unJoinCourse",method=RequestMethod.POST)
 	public String unJoinCourse(@RequestParam("courseId")int courseId) {
+		if(hostHolder.getUser()==null) {
+			return "redirect:/login";
+		}
 		int userId=hostHolder.getUser().getId();
 		joinCourseService.unJoinCourse(courseId, userId);
 		return "redirect:/course/"+courseId;

@@ -38,11 +38,7 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/admin/**"/>       
-            <mvc:mapping path="/localUser"/>       
             <mvc:mapping path="/addCourse"/>       
-            <mvc:mapping path="/course/**"/>       
-            <mvc:mapping path="/joinCourse"/>       
-            <mvc:mapping path="/unJoinCourse"/>       
             <bean class="cn.mansys.Interceptor.RequireLoginInterceptor"></bean>
         </mvc:interceptor>
         <mvc:interceptor>

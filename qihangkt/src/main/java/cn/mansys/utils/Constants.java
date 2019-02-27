@@ -12,7 +12,7 @@ public class Constants {
 	public final static int USER_PAGE_SIZE=10;
 	
 	//上传文件存储路径
-	public final static String UPLOAD_PATH="\\static\\course\\";
+	public final static String UPLOAD_PATH="/static/course/";
 	//文件下载路径
 	public final static String DOWNLOAD_PATH="";
 	

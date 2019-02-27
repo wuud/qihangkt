@@ -31,7 +31,6 @@ public class FeedBackController {
 	@RequestMapping(value="/feedback",method=RequestMethod.POST)
 	public String postFeedBack(@RequestParam("message") String message,HttpServletRequest request) throws IOException {
 		System.out.println(message);
-		String path=request.getSession().getServletContext().getRealPath("");
 		User localUser=hostHolder.getUser();
 		feedbackDao.addFeedback(new Feedback(message, localUser, new Date()));
 		

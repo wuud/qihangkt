@@ -49,6 +49,9 @@ public class CourseController {
 
 	@RequestMapping(value = "/course/{courseId}")
 	public String courseDetail(Model model, @PathVariable("courseId") int courseId) {
+		if(hostHolder.getUser()==null) {
+			return "redirect:/login";
+		}
 		int userId=hostHolder.getUser().getId();
 		Course course = courseService.getCourseById(courseId);
 		model.addAttribute("course", course);
@@ -91,7 +94,7 @@ public class CourseController {
 		try {
 			if (picture!=null) {
 				String filename = picture.getOriginalFilename();
-				String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "\\picture");
+				String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "/picture");
 				File uploadfile = new File(path, filename);
 				if (!uploadfile.exists()) {
 					uploadfile.mkdirs();
@@ -104,7 +107,7 @@ public class CourseController {
 			if (file != null) {
 
 				String filename = file.getOriginalFilename();
-				String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "\\file");
+				String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "/file");
 				File uploadfile = new File(path, filename);
 				if (!uploadfile.exists()) {
 					uploadfile.mkdirs();
@@ -121,7 +124,7 @@ public class CourseController {
 			if (videos != null) {
 				for (MultipartFile video : videos) {
 					String filename = video.getOriginalFilename();
-					String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "\\video");
+					String path = new String(basePath+Constants.UPLOAD_PATH + courseName + "/video");
 					File uploadfile = new File(path, filename);
 					if (!uploadfile.exists()) {
 						uploadfile.mkdirs();
@@ -157,10 +160,11 @@ public class CourseController {
 	 * 文件下载
 	 */
 	@RequestMapping(value="/course/{courseId}/download")
-	public ResponseEntity<byte[]> downCourseFile(@PathVariable("courseId")int courseId) throws IOException {
+	public ResponseEntity<byte[]> downCourseFile(@PathVariable("courseId")int courseId,HttpServletRequest request) throws IOException {
 		//要下载的文件所在目录的绝对路径
         Course course = courseService.getCourseById(courseId);
-        String filePath=Constants.DOWNLOAD_PATH + course.getCourseFile();
+        String realPath=request.getRealPath("");
+        String filePath=realPath + course.getCourseFile();
         File file=new File(filePath);
         HttpHeaders hh=new HttpHeaders();
         //解决中文乱码问题
@@ -171,5 +175,4 @@ public class CourseController {
         hh.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),hh,HttpStatus.CREATED);
 	}
-
 }

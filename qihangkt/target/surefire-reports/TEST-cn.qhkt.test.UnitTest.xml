@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="cn.qhkt.test.UnitTest" time="0.475" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="cn.qhkt.test.UnitTest" time="0.597" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="E:\sts-bundle\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3418394001640193372.tmp"/>
+    <property name="classworlds.conf" value="E:\sts-bundle\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1677621519985353784.tmp"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_161\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_161/bin/../jre/lib/amd64;D:\oracle\product\11.2.0\dbhome_1\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\Java\jdk1.8.0_161\jre\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;E:\Maven\apache-maven-3.5.4\bin;D:\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\ASUS\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\ASUS\AppData\Local\Programs\Python\Python37\;D:\Scripts\;D:\;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;F:\Android\adt-bundle-windows-x86_64-20140321\sdk\platform-tools;&quot;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\Java\jdk1.8.0_161\jre\bin;&quot;;E:\IntelliJ IDEA 2018.3.1\bin;E:\sts-bundle\sts-3.9.6.RELEASE;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,5 +61,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="cn.qhkt.test.UnitTest" name="test" time="0.475"/>
+  <testcase classname="cn.qhkt.test.UnitTest" name="test" time="0.597"/>
 </testsuite>

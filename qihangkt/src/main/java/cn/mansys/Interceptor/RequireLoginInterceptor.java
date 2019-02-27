@@ -19,6 +19,7 @@ public class RequireLoginInterceptor implements HandlerInterceptor{
 			throws Exception {
 		if(hostHolder.getUser()==null) {
 			response.sendRedirect(request.getContextPath()+"/login");
+			return true;
 		}
 		return true;
 	}
