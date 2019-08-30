@@ -88,10 +88,16 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary col-md-offset-11">发布课程</button>
+			<button id="submit" class="btn btn-primary col-md-offset-11">发布课程</button>
 		</form>
 	</div>
-
+	<script type="text/javascript">
+		$(function () {
+			$("#submit").on("click", function () {
+				alert("haha")
+			});
+		});
+	</script>
 
 
 	<!-- 页面底部 -->
